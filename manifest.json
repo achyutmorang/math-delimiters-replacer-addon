@@ -1,0 +1,14 @@
+{
+  "package": "math_delimiters_replacer",
+  "name": "Math Delimiters Replacer",
+  "description": "An addon to replace math equation delimiters",
+  "version": "1.0.0",
+  "modules": [
+    {"name": "math_delimiters_replacer", "path": "__init__.py"},
+    {"name": "math_delimiters_replacer.main", "path": "main.py"}
+  ],
+  "license": "MIT",
+  "licenseFile": "LICENSE.txt",
+  "minAnkiVersion": "2.1.0",
+  "maxAnkiVersion": "2.1.9"
+}
