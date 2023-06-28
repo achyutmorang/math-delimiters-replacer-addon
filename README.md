@@ -12,7 +12,7 @@ The Math Delimiters Replacer is an Anki addon that simplifies the process of rep
 2. In Anki, go to "Tools" -> "Add-ons" -> "Browse & Install" and select the downloaded package.
 3. Restart Anki to activate the addon.
 
-Once the addon is installed, you'll find a button{\(...\)} labeled "Replace Math Delimiters" in the toolpane. Simply select the math equations in your notes and click the button to automatically replace the delimiters.
+Once the addon is installed, you'll find a button {\\(...\\)} labeled "Replace Math Delimiters" in the toolpane. Simply select the math equations in your notes and click the button to automatically replace the delimiters.
 
 For more information, bug reports, and feature requests, please visit the [GitHub repository](https://github.com/achyutmorang/math-delimiters-replacer-addon).
 
