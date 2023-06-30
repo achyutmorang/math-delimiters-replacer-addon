@@ -42,6 +42,10 @@ def replaceMathDelimiters(editor):
 
     # Preserve newline breaks in the modified text
     modified_text = modified_text.replace("\\n", "<br>")
+    
+    # Replace \begin and \end with \[ and \]
+    modified_text = re.sub(r'\\begin{(\w+)}|\\end{(\w+)}', lambda m: r'\[' if m.group().startswith(r'\begin') else r'\]', modified_text)
+
 
     # Execute JavaScript to replace the selected text with modified text
     replace_selected_text_script = f"""
