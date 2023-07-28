@@ -48,7 +48,7 @@ def replaceMathDelimiters(editor):
 
     # Execute JavaScript to replace the selected text with modified text
     replace_selected_text_script = f"""
-    document.execCommand('insertHtml', false, '{modified_text}');
+    document.execCommand('insertHtml', false, `{modified_text}`);
     """
     web_view.page().runJavaScript(replace_selected_text_script)
      
