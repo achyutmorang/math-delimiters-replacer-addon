@@ -56,7 +56,7 @@ def replaceMathDelimiters(editor):
 
 def createReplaceDelimitersButton(editor):
     editor._links['replaceDelimiters'] = replaceMathDelimiters
-    QShortcut(QKeySequence("Ctrl+D"), editor.widget, activated=lambda s=editor: replaceMathDelimiters(s))
+    # QShortcut(QKeySequence("Ctrl+D"), editor.widget, activated=lambda s=editor: replaceMathDelimiters(s))
     return '''<button tabindex=-1 class="linkb" title="Replace Math Delimiters"
                 type="button" onclick="pycmd('replaceDelimiters');return false;">\(...\)</button>'''
 
