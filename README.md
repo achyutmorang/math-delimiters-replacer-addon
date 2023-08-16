@@ -2,13 +2,12 @@
 
 Math Delimiters Replacer is an Anki addon that automates the conversion of math equation delimiters while creating cards. It replaces `$$` with `\[` and `\]`, and `$` with `\(` and `\)`, maintaining formatting and enhancing note readability.
 
-![demo](rmd.gif)
+![demo](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWRuODJwOXR5a2IybzF3aXpyZzQ1NDFtZDRiZWxrdnMyamRnODRidSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WjiwHpZlGlWD5bjlML/giphy.gif)
 
 
 ## Features
 
 - Simplifies math delimiter conversion in notes.
-- Preserves formatting, including newline breaks.
 - Supports block (`$$`) and inline (`$`) equations.
 - Offers a toolpane button for easy formatting.
 - Default keyboard shortcut: `Alt+M` (configurable).
