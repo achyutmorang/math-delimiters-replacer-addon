@@ -18,11 +18,13 @@ import re
 from anki.utils import stripHTML
 
 # Config
-
-def getConfig():
-    return mw.addonManager.getConfig(__name__)
-
+def get_key():
+    conf = mw.addonManager.getConfig(__name__)
+    return conf.get("hotkey", "") if conf else ""
 # Format Function
+def format_key(k):
+    return QKeySequence(k).toString(QKeySequence.NativeText)
+
 
 def replaceMathDelimiters(editor):
     # Get a reference to the editor's web view
@@ -34,6 +36,12 @@ def replaceMathDelimiters(editor):
     # Format the selected text as a raw multiline string
     selected_text = r"""{}""".format(selected_text.encode("unicode-escape").decode())
 
+    # Remove the selected text from the editor using Ctrl+X
+    cut_selected_text_script = """
+    document.execCommand('cut', false);
+    """
+    web_view.page().runJavaScript(cut_selected_text_script)
+
     # Replace block equation delimiters ($$) with \[ and \]
     modified_text = re.sub(r"\$\$([\s\S]*?)\$\$", r"\\\[\1\\\]", selected_text, flags=re.DOTALL)
 
@@ -44,26 +52,28 @@ def replaceMathDelimiters(editor):
     modified_text = modified_text.replace("\\n", "<br>")
     
     # Replace \begin and \end with \[ and \]
-    modified_text = re.sub(r'\\begin{(\w+)}|\\end{(\w+)}', lambda m: r'\[' if m.group().startswith(r'\begin') else r'\]', modified_text)
+    # modified_text = re.sub(r'\\begin{(\w+)}|\\end{(\w+)}', lambda m: r'\[' if m.group().startswith(r'\begin') else r'\]', modified_text)
 
-    # Execute JavaScript to replace the selected text with modified text
-    replace_selected_text_script = f"""
-    document.execCommand('insertHtml', false, `{modified_text}`);
+    # Insert the modified text at the cursor position
+    insert_modified_text_script = f"""
+    document.execCommand('insertText', false, `{modified_text}`);
     """
-    web_view.page().runJavaScript(replace_selected_text_script)
+    web_view.page().runJavaScript(insert_modified_text_script)
      
 
-
-def createReplaceDelimitersButton(editor):
-    editor._links['replaceDelimiters'] = replaceMathDelimiters
-    # QShortcut(QKeySequence("Ctrl+D"), editor.widget, activated=lambda s=editor: replaceMathDelimiters(s))
-    return '''<button tabindex=-1 class="linkb" title="Replace Math Delimiters"
-                type="button" onclick="pycmd('replaceDelimiters');return false;">\(...\)</button>'''
-
-
-def onSetupButtons(buttons, editor):
-    buttons.append(createReplaceDelimitersButton(editor))
+def setupEditorButtonsFilter(buttons, editor):
+    key = get_key()
+    b = editor.addButton(
+            os.path.join(os.path.dirname(__file__), "rmd.png"),
+            "replaceMathDelimiters",
+            replaceMathDelimiters,
+            tip=f"Replace Math Delimiters ({format_key(key)})",
+            keys=key
+        )
+    buttons.append(b)
     return buttons
 
+addHook("setupEditorButtons", setupEditorButtonsFilter)
 
-addHook("setupEditorButtons", onSetupButtons)
+
+
