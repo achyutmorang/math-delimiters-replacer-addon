@@ -1,19 +1,34 @@
-## Math Delimiters Replacer
-The Math Delimiters Replacer is an Anki addon that simplifies the process of replacing math equation delimiters while adding cards in Anki. It automates the conversion of block equation delimiters ($$) to \\[ and \\], as well as inline equation delimiters ($) to \\( and \\).
+# Math Delimiters Replacer
 
-### Key Features:
-- Streamlines the conversion of math equation delimiters in your notes.
-- Preserves newline breaks to maintain the formatting of your equations.
-- Supports both block equation delimiters ($$) and inline equation delimiters ($).
-- Convenient button in the toolpane for easy usage as a formatting tool.
+Math Delimiters Replacer is an Anki addon that automates the conversion of math equation delimiters while creating cards. It replaces `$$` with `\[` and `\]`, and `$` with `\(` and `\)`, maintaining formatting and enhancing note readability.
 
-**Installation:**
-1. Download the addon package (.ankiaddon) from the releases section or the AnkiWeb page.
+## Features
+
+- Simplifies math delimiter conversion in notes.
+- Preserves formatting, including newline breaks.
+- Supports block (`$$`) and inline (`$`) equations.
+- Offers a toolpane button for easy formatting.
+- Default keyboard shortcut: `Alt+M` (configurable).
+
+## Installation
+
+1. Download the addon package (`.ankiaddon`) from [releases](https://github.com/achyutmorang/math-delimiters-replacer-addon/releases) or [AnkiWeb](https://ankiweb.net/shared/info/ADDON_ID).
 2. In Anki, go to "Tools" -> "Add-ons" -> "Browse & Install" and select the downloaded package.
 3. Restart Anki to activate the addon.
 
-Once the addon is installed, you'll find a button {\\(...\\)} labeled "Replace Math Delimiters" in the toolpane. Simply select the text formatted with $ and $$ delimiters (use Ctrl+A to select text from an entire add-field) and click the button on toolpane to automatically replace the delimiters with \\( and \\) for in-line equations, \\[ and \\] for block equations.
+## Usage
 
-For more information, bug reports, and feature requests, please visit the [GitHub repository](https://github.com/achyutmorang/math-delimiters-replacer-addon).
+1. After installation, find the `{\\(...\\)}` button in the toolpane.
+2. Select text with `$` and `$$` delimiters (Ctrl+A selects all text).
+3. Click the button to replace with `\(`, `\)` and `\]`, `\[`.
 
-*Note: This addon is licensed under the MIT License. Feel free to use and modify it according to your needs.*
+- Alternatively, use the default keyboard shortcut `Alt+M`.
+- You can configure the keyboard shortcut to your preference.
+
+## Feedback and Contributions
+
+For more info, bugs, or suggestions, visit [GitHub repository](https://github.com/achyutmorang/math-delimiters-replacer-addon).
+
+## License
+
+This addon is licensed under the MIT License.
