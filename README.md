@@ -14,7 +14,7 @@ Math Delimiters Replacer is an Anki addon that automates the conversion of math 
 
 ## Installation
 
-1. Download the addon package (`.ankiaddon`) from [releases](https://github.com/achyutmorang/math-delimiters-replacer-addon/releases) or [AnkiWeb](https://ankiweb.net/shared/info/ADDON_ID).
+1. Download the addon package (`.ankiaddon`) from [releases](https://github.com/achyutmorang/math-delimiters-replacer-addon/releases) or [AnkiWeb](https://ankiweb.net/shared/info/211799575).
 2. In Anki, go to "Tools" -> "Add-ons" -> "Browse & Install" and select the downloaded package.
 3. Restart Anki to activate the addon.
 
